@@ -96,4 +96,35 @@
   .skip-link {
     @apply sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-brand-600 focus:px-4 focus:py-2 focus:text-white;
   }
+
+  .prose-summary {
+    @apply text-slate-800 leading-relaxed space-y-4;
+  }
+  .prose-summary p {
+    @apply mb-4;
+  }
+  .prose-summary p:last-child {
+    @apply mb-0;
+  }
+  .prose-summary ul {
+    @apply list-disc list-inside mb-4 space-y-1;
+  }
+  .prose-summary ol {
+    @apply list-decimal list-inside mb-4 space-y-1;
+  }
+  .prose-summary li {
+    @apply ml-2;
+  }
+  .prose-summary h1, .prose-summary h2, .prose-summary h3, .prose-summary h4 {
+    @apply font-bold text-slate-900 mt-6 mb-3;
+  }
+  .prose-summary h1 { @apply text-2xl; }
+  .prose-summary h2 { @apply text-xl; }
+  .prose-summary h3 { @apply text-lg; }
+  .prose-summary strong {
+    @apply font-semibold text-slate-900;
+  }
+  .prose-summary blockquote {
+    @apply border-l-4 border-brand-300 pl-4 italic text-slate-600;
+  }
 }

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
 import { IconCheck, IconCopy, IconDownload } from './icons/Icons';
 import Button from './ui/Button';
 import Spinner from './ui/Spinner';
@@ -69,8 +70,8 @@ export default function ResultPanel({
             </div>
           </div>
         ) : summary ? (
-          <article className="prose-summary animate-fade-in whitespace-pre-wrap text-sm leading-relaxed text-slate-800">
-            {summary}
+          <article className="prose-summary animate-fade-in text-sm leading-relaxed text-slate-800">
+            <ReactMarkdown>{summary}</ReactMarkdown>
           </article>
         ) : (
           <div className="flex h-full min-h-[150px] flex-col items-center justify-center text-center">
