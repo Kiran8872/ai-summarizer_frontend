@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --surface: #f8fafc;
+    --surface-elevated: #ffffff;
+    --text-primary: #0f172a;
+    --text-muted: #64748b;
+    --accent: #4f46e5;
+    --accent-soft: #eef2ff;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+    background: linear-gradient(-45deg, #f1f5f9, #e0e7ff, #ede9fe, #f8fafc);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    background-attachment: fixed;
+  }
+
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-[2rem] border border-white/60 bg-white/70 p-6 shadow-xl backdrop-blur-md transition-all duration-300;
+  }
+
+  .card-interactive {
+    @apply card hover:-translate-y-1 hover:border-brand-300 hover:bg-white/90 hover:shadow-2xl hover:shadow-brand-500/10 cursor-pointer;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-brand-600 to-brand-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-500/30 transition-all duration-300 hover:scale-105 hover:from-brand-500 hover:to-brand-400 hover:shadow-brand-500/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-2xl border-2 border-white/80 bg-white/60 backdrop-blur-sm px-5 py-3 text-sm font-medium text-slate-700 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-300 hover:bg-white hover:text-brand-700 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-2xl px-5 py-3 text-sm font-medium text-slate-600 transition-all duration-300 hover:bg-slate-200/50 hover:text-slate-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center rounded-2xl border-2 border-red-100 bg-white/80 px-5 py-3 text-sm font-medium text-red-600 transition-all duration-300 hover:-translate-y-0.5 hover:border-red-300 hover:bg-red-50 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-red-400 focus-visible:ring-offset-2;
+  }
+
+  .input-select {
+    @apply w-full rounded-2xl border-2 border-transparent bg-white/60 px-4 py-3 text-sm text-slate-900 shadow-inner backdrop-blur-sm transition-all duration-300 hover:bg-white/80 focus:border-brand-500 focus:bg-white focus:outline-none focus:ring-4 focus:ring-brand-500/20;
+  }
+
+  .textarea-input {
+    @apply w-full resize-y rounded-2xl border-2 border-transparent bg-white/60 px-5 py-4 text-sm leading-relaxed text-slate-900 shadow-inner backdrop-blur-sm placeholder:text-slate-400 transition-all duration-300 hover:bg-white/80 focus:border-brand-500 focus:bg-white focus:outline-none focus:ring-4 focus:ring-brand-500/20;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold tracking-wide shadow-sm;
+  }
+
+  .badge-success {
+    @apply badge bg-emerald-100/80 text-emerald-800 border border-emerald-200;
+  }
+
+  .badge-error {
+    @apply badge bg-red-100/80 text-red-800 border border-red-200;
+  }
+
+  .badge-neutral {
+    @apply badge bg-slate-100/80 text-slate-700 border border-slate-200;
+  }
+
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-brand-600 focus:px-4 focus:py-2 focus:text-white;
+  }
+}
